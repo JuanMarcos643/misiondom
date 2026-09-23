@@ -1,6 +1,6 @@
 /* ===========================================================
    MISIÓN DOM — archivo de trabajo
-   Aprendiz: Nombre Completo
+   Aprendiz: Juan Marcos, Juan Angel, Jesus Hernández, Andrea rivera
    Ficha 3230489 · ADSO
 
    Este archivo empieza vacío. Cada misión de la parte 3 se
