@@ -44,10 +44,22 @@ main {
 
 /* ---------- 3. Cabecera ---------- */
 .cabecera {
-  background: #fbbf24;
-  color: #000000;
-  padding: 1.25rem;
-  
+  background: linear-gradient(135deg, #fbbf24 0%, #facc15 32%, #fff7c2 100%);
+  color: #111827;
+  padding: 1.15rem 1.5rem;
+  border-bottom: 3px solid rgba(17, 24, 39, 0.08);
+  box-shadow: 0 8px 20px rgba(17, 24, 39, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+
+.cabecera {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
 .cabecera h1 {
