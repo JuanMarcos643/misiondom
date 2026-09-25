@@ -53,8 +53,10 @@ const btnVaciar = document.getElementById("btnVaciar");
 const filas = document.querySelectorAll("#tabla tbody tr");
 
 // M13
+const campoNombre = document.getElementById("campoNombre");
 const campoMensaje = document.getElementById("campoMensaje");
 const contadorLetras = document.getElementById("contadorLetras");
+const avisoForm = document.getElementById("avisoForm");
 
 // M14
 const formulario = document.getElementById("formulario");
@@ -62,6 +64,8 @@ const formulario = document.getElementById("formulario");
 // M15
 const btnTema = document.getElementById("btnTema");
 
+// M16
+const galeriaProductos = document.getElementById("galeriaProductos");
 
 
 /* ---------- 2. ESTADO ---------- */
@@ -203,7 +207,15 @@ function validarFormulario(evento) {
 
     evento.preventDefault();
 
-    // Aquí iría la validación del nombre y mensaje
+    if (campoNombre.value.trim() === "" || campoMensaje.value.trim() === "") {
+        avisoForm.textContent = "Completa todos los campos";
+        avisoForm.style.color = "black";
+        return;
+    }
+
+    avisoForm.textContent = "Mensaje enviado con éxito";
+    avisoForm.style.color = "black";
+    formulario.reset();
 }
 
 
@@ -220,10 +232,40 @@ function cambiarTema() {
 }
 
 
-// M16 - Tu misión propia
-function miMision() {
+// M16 - Galería de productos con imágenes
+const productos = [
+    {
+        nombre: "Hamburguesa Caribe",
+        precio: "$15.000",
+        imagen: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+        nombre: "Perro especial",
+        precio: "$12.000",
+        imagen: "https://images.unsplash.com/photo-1563567644743-81256d4aedca?q=80&w=1331&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+        nombre: "Salchipapa mixta",
+        precio: "$14.000",
+        imagen: "https://tofuu.getjusto.com/orioneat-local/resized2/6DyXc6dNjLrfgLaJy-300-x.webp"
+    },
+    {
+        nombre: "Pizza familiar",
+        precio: "$50.000",
+        imagen: "https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=800&q=80"
+    }
+];
 
-    // Aquí colocas la función de tu misión 16
+function miMision() {
+    galeriaProductos.innerHTML = productos.map(producto => `
+        <article class="galeria-item">
+            <img src="${producto.imagen}" alt="${producto.nombre}">
+            <div class="galeria-info">
+                <h3>${producto.nombre}</h3>
+                <p>${producto.precio}</p>
+            </div>
+        </article>
+    `).join("");
 }
 
 
@@ -276,8 +318,7 @@ btnTema.addEventListener("click", cambiarTema);
 
 
 // M16
-// Aquí irá el evento de tu misión propia
-
+miMision();
 
 
 /* ---------- 5. ARRANQUE ---------- */
